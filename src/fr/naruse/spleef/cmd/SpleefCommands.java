@@ -9,6 +9,7 @@ import fr.naruse.spleef.player.statistic.StatisticBuilder;
 import fr.naruse.spleef.player.statistic.StatisticType;
 import fr.naruse.spleef.spleef.GameStatus;
 import fr.naruse.spleef.spleef.GameType;
+import fr.naruse.spleef.spleef.SpleefArena;
 import fr.naruse.spleef.spleef.bonus.Bonus;
 import fr.naruse.spleef.spleef.bonus.BonusManager;
 import fr.naruse.spleef.spleef.type.Spleef;
@@ -765,6 +766,13 @@ public class SpleefCommands implements CommandExecutor {
                 }
                 return sendMessage(sender, "argumentNotFound", new String[]{"arg"}, new String[]{args[3]});
             }
+            return true;
+        }
+
+        // GENERATE ARENA
+        if(args[0].equalsIgnoreCase("generate")) {
+            SpleefArena arena = new SpleefArena(player.getLocation(), 5, 3, 30, 25, 5);
+            arena.buildLevels();
             return true;
         }
         return false;
